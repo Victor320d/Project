@@ -1,0 +1,46 @@
+/* Стили для блока HEADER */
+.header {
+    background-color: var(--dark-bg-color); /* Темный фон, как на скриншоте */
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color); /* Легкая граница снизу */
+}
+
+.header__container {
+    display: flex; /* Использование flexbox для выравнивания элементов */
+    justify-content: space-between; /* Распределение элементов по краям */
+    align-items: center; /* Выравнивание по центру по вертикали */
+}
+
+.header__logo {
+    font-size: 20px; /* Размер логотипа */
+    font-weight: bold;
+    color: #ffffff;
+    padding: 5px 0; /* Чтобы логотип был выровнен по вертикали с пунктами меню */
+}
+
+.header__nav-list {
+    display: flex; /* Горизонтальное расположение пунктов меню */
+    gap: 30px; /* Отступ между пунктами меню */
+}
+
+.header__nav-link {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 0;
+    position: relative; /* Для подчеркивания при наведении */
+}
+
+.header__nav-link:hover {
+    color: var(--accent-color); /* Акцентный цвет при наведении */
+}
+
+/* Адаптивность для HEADER */
+@media (max-width: 768px) {
+    .header__nav-list {
+        display: none; /* Скрыть меню на мобильных устройствах, возможно, для будущего бургер-меню */
+    }
+
+    .header__container {
+        justify-content: center; /* Центрировать логотип, если меню скрыто */
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW x ChatGPT - Будущее на колесах</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles/blocks/additional-info-section.css">
+</head>
+<body>
+    <div class="preloader" id="preloader">
+        <div class="preloader__content">
+            <img src="img/bmw-logo.svg" alt="BMW Logo" class="preloader__logo">
+            <p class="preloader__text">Loading</p>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                BMW x ChatGPT
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+        <li class="header__nav-item"><a href="#home" class="header__nav-link">Главная</a></li>
+        <li class="header__nav-item"><a href="#features" class="header__nav-link">Функции</a></li>
+        <li class="header__nav-item"><a href="#modules" class="header__nav-link">Модули</a></li>
+        <li class="header__nav-item"><a href="#contacts" class="header__nav-link">Контакты</a></li>
+    </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero-section" id="home">
+            <div class="container hero-section__container">
+                <div class="hero-section__content">
+                    <h1 class="hero-section__title">Будущее на колесах</h1>
+                    <p class="hero-section__subtitle">ИИ и мощь - теперь вместе</p>
+                    <button class="hero-section__button" id="openModalButton">Смотреть больше</button>
+                    <div class="hero-section__logos">
+                        <img src="img/bmw-logo.svg" alt="BMW Logo" class="hero-section__logo-item">
+                        <img src="img/gpt-logos.png" alt="GPT Logos" class="hero-section__logo-item">
+                    </div>
+                </div>
+                <div class="hero-section__image-wrapper">
+                    <img src="img/bmw-car.jpg" alt="BMW Car with open doors and a ship in background" class="hero-section__image">
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="features">
+            <div class="container features-section__container">
+                <div class="feature-card">
+                    <img src="img/icon-navigation.svg" alt="Иконка навигации" class="feature-card__icon">
+                    <p class="feature-card__text">ИИ-навигация</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/icon-voice.svg" alt="Иконка голосового ассистента" class="feature-card__icon">
+                    <p class="feature-card__text">Голосовой ассистент</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/icon-route.svg" alt="Иконка анализа маршрута" class="feature-card__icon">
+                    <p class="feature-card__text">Анализ маршрута</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/icon-driver.svg" alt="Иконка ассистента водителя" class="feature-card__icon">
+                    <p class="feature-card__text">Ассистент водителя</p>
+                </div>
+            </div>
+        </section>
+
+<section class="product-cards-section" id="modules">
+  <div class="container product-cards-section__container">
+    <article class="product-card">
+      <img src="img/product-img1.png" alt="Изображение продукта 1" class="product-card__image">
+      <div class="product-card__caption">Голосовой помощник BMW</div>
+      <button class="product-card__button open-modal-button">Подробнее</button>
+    </article>
+    <article class="product-card">
+      <img src="img/product-img2.png" alt="Изображение продукта 2" class="product-card__image">
+      <div class="product-card__caption">Мультимедийная система с Android Auto</div>
+      <button class="product-card__button open-modal-button">Подробнее</button>
+    </article>
+    <article class="product-card">
+      <img src="img/product-img3.png" alt="Изображение продукта 3" class="product-card__image">
+      <div class="product-card__caption">Развлечение для задних пассажиров</div>
+      <button class="product-card__button open-modal-button">Подробнее</button>
+    </article>
+  </div>
+</section>
+
+
+<section class="additional-info-section" id="contacts">
+    <div class="container additional-info-section__container">
+        <div class="swiper myInfoSlider">
+            <div class="swiper-wrapper">
+                </div>
+            <button class="custom-swiper-button-prev" aria-label="Previous slide"></button>
+            <button class="custom-swiper-button-next" aria-label="Next slide"></button>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <p class="footer__copy">&copy; 2025 BMW x ChatGPT. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Свяжитесь с нами</h2>
+    <form class="modal-form">
+      <div class="form-group">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="modal-button modal-button--send">Отправить</button>
+        <button type="button" class="modal-button modal-button--cancel">Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>

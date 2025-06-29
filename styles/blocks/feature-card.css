@@ -1,0 +1,35 @@
+/* Стили для отдельной карточки FEATURE */
+.feature-card {
+    background-color: var(--card-bg-color); /* Фон карточки, темнее основного */
+    padding: 30px;
+    border-radius: 16px; /* Скругление 16px */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Минимальная высота карточки для равномерности */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 255, 194, 0.2); /* Легкое неоновое свечение */
+    border: 1px solid rgba(0, 255, 194, 0.1); /* Тонкая неоновая рамка */
+}
+
+.feature-card:hover {
+    transform: translateY(-8px); /* Небольшой подъем при наведении */
+    box-shadow: 0 0 25px var(--accent-color), 0 0 40px var(--accent-color); /* Интенсивное неоновое свечение */
+    border-color: var(--accent-color); /* Рамка становится ярче */
+}
+
+.feature-card__icon {
+    width: 80px; /* Увеличиваем размер иконки */
+    height: 80px;
+    margin-bottom: 20px; /* Увеличиваем отступ */
+    border-radius: 16px; /* Скругление 16px */
+    /* Если иконки SVG, можно стилизовать fill/stroke через CSS */
+}
+
+.feature-card__text {
+    font-size: 20px; /* Увеличиваем размер текста */
+    font-weight: 500;
+    color: #ffffff;
+}

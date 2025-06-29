@@ -1,0 +1,27 @@
+/* Стили для секции FEATURES (иконки с описаниями) */
+.features-section {
+    background-color: #000000; /* Темный фон, как на скриншоте */
+    padding: 80px 0; /* Увеличиваем отступы */
+    color: #ffffff;
+}
+
+.features-section__container {
+    display: grid; /* Использование CSS Grid для равномерного распределения карточек */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 колонки, адаптирующиеся под размер, мин. ширина увеличена */
+    gap: 30px; /* Отступ между карточками */
+    justify-content: center;
+}
+
+/* На мобильных устройствах, возможно, 2 колонки или одна */
+@media (max-width: 768px) {
+    .features-section__container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-section__container {
+        grid-template-columns: 1fr; /* Одна колонка на очень маленьких экранах */
+    }
+}

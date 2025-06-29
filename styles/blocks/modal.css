@@ -1,0 +1,155 @@
+/* Стили для модального окна */
+.modal {
+    display: none; /* Изначально скрыто, не занимает место в потоке */
+    position: fixed; /* Позиция фиксирована, перекрывает весь экран */
+    z-index: 10000; /* Выше всего остального */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; /* ИСПОЛЬЗУЕМ 100% - это обычно работает лучше с html, body {height: 100%} */
+    /* overflow: auto; Удалено, чтобы не конфликтовать, если модальное окно само имеет скролл */
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+    backdrop-filter: blur(5px); /* Легкое размытие фона */
+    transition: opacity 0.3s ease; /* Плавное появление/исчезновение */
+}
+
+/* Класс для отображения модального окна */
+.modal.show {
+    display: flex; /* Делаем видимым и используем flexbox для центрирования */
+    opacity: 1; /* Полностью прозрачно */
+}
+
+.modal-content {
+    background-color: var(--card-bg-color); /* Фон модального окна */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 25px var(--accent-color); /* Неоновое свечение */
+    border: 1px solid var(--accent-color); /* Неоновая рамка */
+    width: 90%;
+    max-width: 500px; /* Максимальная ширина модального окна */
+    max-height: 90vh; /* Ограничиваем максимальную высоту 90% от высоты видимой области */
+    overflow-y: auto; /* Добавляем прокрутку, если содержимое превышает max-height */
+    position: relative;
+    transform: translateY(-50px); /* Начальная позиция для анимации */
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Анимация появления содержимого модального окна */
+.modal.show .modal-content {
+    transform: translateY(0); /* Конечная позиция для анимации */
+    opacity: 1;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-shadow: 0 0 5px rgba(0, 255, 194, 0.5); /* Неоновая тень для заголовка */
+}
+
+.modal-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.modal-form input[type="text"],
+.modal-form input[type="email"] {
+    width: calc(100% - 2px); /* Учитываем рамку */
+    padding: 10px;
+    border: 1px solid var(--accent-color); /* Неоновая рамка */
+    background-color: #1a1a1a; /* Темный фон поля */
+    color: #ffffff;
+    border-radius: 8px; /* Скругление полей */
+    font-size: 16px;
+    outline: none; /* Убираем стандартную обводку при фокусе */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-form input[type="text"]:focus,
+.modal-form input[type="email"]:focus {
+    border-color: #00e6b2; /* Более яркая рамка при фокусе */
+    box-shadow: 0 0 10px rgba(0, 255, 194, 0.6); /* Неоновое свечение при фокусе */
+}
+
+.modal-form .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.modal-button {
+    padding: 12px 25px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 194, 0.3); /* Неоновая тень */
+}
+
+.modal-button--send {
+    background-color: var(--accent-color);
+    color: #000000;
+}
+
+.modal-button--send:hover {
+    background-color: #00e6b2;
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.modal-button--cancel {
+    background-color: #444; /* Темно-серый фон для кнопки отмены */
+    color: #ffffff;
+    border: 1px solid #666;
+}
+
+.modal-button--cancel:hover {
+    background-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 576px) {
+    .modal-content {
+        padding: 20px;
+        margin-top: 0; /* На всякий случай */
+    }
+
+    .modal-form .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-button {
+        width: 100%;
+    }
+}

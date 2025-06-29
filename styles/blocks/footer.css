@@ -1,0 +1,17 @@
+/* Стили для FOOTER */
+.footer {
+    background-color: #1a1a1a; /* Темный фон, соответствует шапке */
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color); /* Граница сверху */
+    color: #aaaaaa; /* Более светлый серый для текста */
+    font-size: 14px;
+}
+
+.footer__container {
+    /* Если футер будет содержать больше элементов, здесь можно использовать flexbox */
+}
+
+.footer__copy {
+    margin: 0;
+}

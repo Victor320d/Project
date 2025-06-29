@@ -1,0 +1,84 @@
+/* Глобальные стили для всего проекта */
+/* styles/base/global.css */
+
+:root {
+    --accent-color: #00FFC2; /* Акцентный цвет, который используется в макете */
+    --dark-bg-color: #1A1A1A; /* Очень темный фон для секций */
+    --card-bg-color: #2A2A2A; /* Цвет фона карточек и модального окна */
+    --border-color: #333; /* Цвет границы */
+    --text-color: #ffffff; /* Цвет основного текста */
+    --secondary-text-color: #cccccc; /* Вторичный цвет текста */
+}
+
+/* Сброс box-sizing для всех элементов */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ОЧЕНЬ ВАЖНОЕ ИЗМЕНЕНИЕ: Устанавливаем 100% высоту для html и body,
+   чтобы position: fixed элементы работали корректно относительно всего viewport */
+html, body {
+    height: 100%;
+}
+
+/* Базовые стили для body: фон, шрифт, цвет текста */
+body {
+    font-family: 'Inter', sans-serif; /* Предполагается, что вы используете шрифт Inter или похожий */
+    background-color: #121212; /* Очень темный фон, почти черный, с легкой вариацией */
+    color: #ffffff; /* Белый текст */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для лучшей читаемости */
+    -moz-osx-font-smoothing: grayscale; /* Сглаживание шрифтов для лучшей читаемости */
+}
+
+/* Общий класс для центрирования контента и ограничения по ширине */
+.container {
+    max-width: 1280px; /* Максимальная ширина контента по макету */
+    margin: 0 auto; /* Центрирование блока */
+    padding: 0 40px; /* Отступы по бокам для адаптивности */
+}
+
+/* Стилизация ссылок по умолчанию */
+a {
+    color: inherit; /* Наследует цвет текста родителя */
+    text-decoration: none; /* Убирает подчеркивание */
+    transition: color 0.3s ease; /* Плавный переход при наведении */
+}
+
+a:hover {
+    color: var(--accent-color); /* Акцентный цвет при наведении */
+}
+
+/* Стилизация кнопок по умолчанию */
+button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    padding: 0;
+    border-radius: 16px; /* Скругление 16px для всех кнопок */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Сброс стилей для списков */
+ul, ol {
+    list-style: none;
+}
+
+/* Стилизация изображений по умолчанию для скруглений */
+img {
+    border-radius: 16px; /* Скругление 16px для всех изображений */
+    display: block; /* Убираем лишние отступы под изображениями */
+    max-width: 100%; /* Гарантируем, что изображение не выйдет за пределы родителя */
+    height: auto;
+}
+
+/* Стиль для body, чтобы предотвратить прокрутку фона при открытом модальном окне */
+body.modal-open {
+    overflow: hidden; /* Этот стиль будет применяться ТОЛЬКО когда модальное окно открыто */
+}

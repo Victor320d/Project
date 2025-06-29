@@ -1,0 +1,28 @@
+/* Стили для элемента INFO ITEM (слайды в нижней секции) */
+.info-item {
+    background-color: #1a1a1a; /* Фон элемента, чуть темнее, чем карточки */
+    padding: 20px 30px; /* Увеличиваем внутренние отступы */
+    border-radius: 16px; /* Скругление 16px */
+    text-align: center;
+    /* width: 100%; Убрал, т.к. Swiper управляет шириной слайдов */
+    display: flex; /* Чтобы текст центрировался внутри блока */
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Фиксированная высота для равномерности в слайдере */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 255, 194, 0.2); /* Легкое неоновое свечение */
+    border: 1px solid rgba(0, 255, 194, 0.1); /* Тонкая неоновая рамка */
+}
+
+.info-item:hover {
+    background-color: #2a2a2a; /* Темнее при наведении */
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--accent-color), 0 0 40px var(--accent-color); /* Интенсивное неоновое свечение */
+    border-color: var(--accent-color); /* Рамка становится ярче */
+}
+
+.info-item__text {
+    font-size: 18px; /* Увеличиваем размер текста */
+    font-weight: 500;
+    color: #ffffff;
+}

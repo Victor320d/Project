@@ -1,0 +1,45 @@
+/* Стили для прелоадера */
+.preloader {
+    position: fixed; /* Фиксированное позиционирование, чтобы перекрывать весь экран */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* Чисто черный фон, как на скриншоте */
+    display: flex;
+    justify-content: center; /* Центрирование контента по горизонтали */
+    align-items: center; /* Центрирование контента по вертикали */
+    z-index: 9999; /* Поверх всех остальных элементов */
+    opacity: 1; /* Начальная непрозрачность */
+    transition: opacity 0.5s ease; /* Плавное исчезновение */
+}
+
+.preloader__content {
+    text-align: center;
+}
+
+.preloader__logo {
+    width: 100px; /* Размер логотипа BMW */
+    height: 100px;
+    margin-bottom: 20px;
+    animation: spin 2s linear infinite; /* Анимация вращения */
+}
+
+.preloader__text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color); /* Неоновое свечение */
+}
+
+/* Определение анимации вращения */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Класс для скрытия прелоадера */
+.preloader.hidden {
+    opacity: 0;
+    pointer-events: none; /* Отключаем события мыши, чтобы можно было кликать по контенту под ним */
+}

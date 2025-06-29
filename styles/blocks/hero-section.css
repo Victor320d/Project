@@ -1,0 +1,133 @@
+/* Стили для секции HERO */
+.hero-section {
+    padding: 80px 0;
+    background-color: #000000; /* Более глубокий черный фон для этой секции */
+    color: #ffffff;
+}
+
+.hero-section__container {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Увеличенный отступ между контентом и изображением */
+    flex-wrap: wrap; /* Перенос элементов на новую строку для адаптивности */
+    justify-content: center; /* Центрирование элементов на маленьких экранах */
+}
+
+.hero-section__content {
+    flex: 1; /* Позволяет контенту занимать доступное пространство */
+    min-width: 300px; /* Минимальная ширина для контентного блока */
+    text-align: left; /* Выравнивание текста */
+}
+
+.hero-section__title {
+    font-size: 64px; /* Увеличиваем размер заголовка */
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-section__subtitle {
+    font-size: 24px; /* Увеличиваем размер подзаголовка */
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.hero-section__button {
+    background-color: var(--accent-color); /* Акцентный цвет для кнопки */
+    color: #000000; /* Черный текст на неоновой кнопке */
+    padding: 15px 35px; /* Увеличиваем отступы кнопки */
+    border-radius: 16px; /* Скругление 16px */
+    font-size: 20px; /* Увеличиваем размер текста кнопки */
+    font-weight: bold;
+    box-shadow: 0 0 15px var(--accent-color); /* Неоновое свечение */
+    margin-bottom: 50px; /* Отступ снизу */
+}
+
+.hero-section__button:hover {
+    background-color: #00e6b2; /* Немного темнее при наведении */
+    box-shadow: 0 0 25px var(--accent-color);
+}
+
+.hero-section__logos {
+    display: flex;
+    gap: 40px; /* Увеличиваем отступ между логотипами */
+    margin-top: 30px;
+    align-items: center;
+}
+
+.hero-section__logo-item {
+    height: 80px; /* Увеличиваем размер логотипов */
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    border-radius: 16px; /* Скругление 16px */
+}
+
+.hero-section__logo-item:hover {
+    opacity: 1;
+}
+
+.hero-section__image-wrapper {
+    flex: 1;
+    min-width: 450px; /* Минимальная ширина для блока с изображением */
+    background-color: #181818; /* Фон для изображения, чуть темнее общего */
+    border-radius: 16px; /* Скругление 16px */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 30px; Убираем внутренний отступ */
+    box-shadow: 0 0 30px rgba(0, 255, 194, 0.6); /* Неоновое свечение вокруг блока изображения */
+    /* border: 1px solid rgba(0, 255, 194, 0.3); Убираем тонкую неоновую рамку */
+}
+
+.hero-section__image {
+    max-width: 100%; /* Гарантируем, что изображение не выйдет за пределы обертки */
+    height: 100%; /* Растягиваем изображение на всю высоту обертки */
+    object-fit: cover; /* Обрезаем изображение, чтобы оно заполнило обертку */
+    border-radius: 16px; /* Скругление 16px для самого изображения */
+}
+
+/* Адаптивность для HERO SECTION */
+@media (max-width: 992px) {
+    .hero-section__container {
+        flex-direction: column; /* Элементы в колонку на планшетах */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-section__content {
+        text-align: center;
+    }
+
+    .hero-section__button {
+        margin: 0 auto 40px auto; /* Центрируем кнопку */
+    }
+
+    .hero-section__logos {
+        justify-content: center; /* Центрируем логотипы */
+    }
+
+    .hero-section__title {
+        font-size: 48px;
+    }
+
+    .hero-section__subtitle {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section__title {
+        font-size: 36px;
+    }
+
+    .hero-section__subtitle {
+        font-size: 18px;
+    }
+
+    .hero-section__image-wrapper {
+        min-width: auto;
+        padding: 0; /* Убеждаемся, что на мобильных тоже нет padding */
+    }
+}

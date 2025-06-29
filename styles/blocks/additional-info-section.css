@@ -1,0 +1,234 @@
+/* styles/blocks/additional-info-section.css - ИСПРАВЛЕННАЯ ВЕРСИЯ */
+
+/* Стили для секции ADDITIONAL INFO */
+.additional-info-section {
+    background-color: var(--dark-bg-color, #0a0a0a);
+    padding: 60px 0;
+    position: relative;
+    overflow: visible; /* Важно для корректного отображения стрелок */
+}
+
+/* Контейнер для содержимого слайдера */
+.additional-info-section__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* Основной контейнер Swiper */
+.myInfoSlider {
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--card-bg-color, #1e1e1e);
+    border-radius: 16px;
+    position: relative;
+    min-height: 180px; /* Фиксированная высота для слайдера, чтобы было относительно чего центрировать */
+}
+
+/* При наведении на контейнер слайдера, усилим неоновое свечение */
+.myInfoSlider:hover {
+    box-shadow: 0 0 25px var(--accent-color, #00FFC2), 0 0 40px var(--accent-color, #00FFC2);
+    border-color: var(--accent-color, #00FFC2);
+}
+
+/* Переносим вертикальный padding на swiper-wrapper - если нужно */
+/* В данной версии padding уже на .myInfoSlider, что приемлемо */
+.myInfoSlider .swiper-wrapper {
+    /* Если карточки слишком сильно прижимаются к краям, можно добавить padding-top/bottom сюда */
+    /* padding: 20px 0; */
+    box-sizing: border-box;
+}
+
+/* Стили для слайдов */
+.swiper-slide {
+    display: flex;
+    justify-content: center; /* Центрирует карточку по горизонтали внутри слайда */
+    align-items: center;   /* <-- ЭТО НОВОЕ ДОБАВЛЕНИЕ: Центрирует карточку по вертикали */
+    padding: 0 10px;
+    height: auto; /* Позволяем высоте слайда подстраиваться под контент, но важно, чтобы .myInfoSlider имел достаточную min-height */
+}
+
+/* Стили для элементов внутри слайда */
+.info-item {
+    background-color: var(--card-bg-color, #1e1e1e);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирует содержимое по вертикали внутри карточки */
+    align-items: center; /* Центрирует содержимое по горизонтали внутри карточки */
+    min-height: 120px;
+    box-shadow: 0 0 15px rgba(0, 255, 194, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Карточка занимает всю доступную ширину слайда */
+    text-align: center; /* Добавим для центрирования текста, если он не центрируется flexbox */
+    box-sizing: border-box; /* Важно: padding не увеличивает общую ширину/высоту */
+    padding: 20px;
+    width: 100%; /* Убедитесь, что карточка занимает всю доступную ширину */
+    box-sizing: border-box; /* <-- ДОБАВЛЕНО/ИСПРАВЛЕНО: Очень важно! Включает padding в общую ширину */
+    text-align: center; /* Центрирует текст внутри самой карточки */
+    /* Добавьте следующие, если их нет или они были удалены */
+    overflow: hidden; /* Обрезает содержимое, которое выходит за границы элемента */
+}
+
+.info-item__text:hover {
+    text-shadow: 0 0 10px var(--accent-color, #00FFC2),
+                 0 0 20px var(--accent-color-light, rgba(0, 255, 194, 0.9)),
+                 0 0 35px var(--accent-color-lighter, rgba(0, 255, 194, 0.6));
+}
+
+.info-item__text {
+    color: var(--text-color, #fff);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    /* НОВЫЕ СТИЛИ ДЛЯ НЕОНОВОГО СВЕЧЕНИЯ ТЕКСТА */
+    text-shadow: 0 0 8px var(--accent-color, #00FFC2), /* Более мягкое свечение */
+                 0 0 15px var(--accent-color-light, rgba(0, 255, 194, 0.7)), /* Среднее свечение */
+                 0 0 25px var(--accent-color-lighter, rgba(0, 255, 194, 0.4)); /* Дальнее, более рассеянное свечение */
+    /* Добавляем transition для плавного эффекта, если будет изменение свечения при hover */
+    transition: text-shadow 0.3s ease;
+}
+
+/* СКРЫТИЕ СТАНДАРТНЫХ КНОПОК SWIPER */
+/* Убедитесь, что эти классы не используются для ваших кастомных кнопок */
+.swiper-button-next:not([class*='custom-']),
+.swiper-button-prev:not([class*='custom-']) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Стили для ВАШИХ КАСТОМНЫХ стрелок навигации */
+.custom-swiper-button-next,
+.custom-swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color, #00FFC2);
+    border-radius: 50%;
+    display: flex !important; /* Убеждаемся, что кнопка видна и является flex-контейнером */
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 194, 0.5);
+    opacity: 1 !important; /* Явное позиционирование */
+    visibility: visible !important;
+}
+
+/* Иконки внутри кнопок (используем SVG data-uri, как у вас было) */
+.custom-swiper-button-next::before,
+.custom-swiper-button-prev::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Левая кнопка */
+.custom-swiper-button-prev {
+    left: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z'/%3E%3C/svg%3E");
+}
+
+/* Правая кнопка */
+.custom-swiper-button-next {
+    right: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z'/%3E%3C/svg%3E");
+}
+
+/* Состояния при наведении */
+.custom-swiper-button-next:hover,
+.custom-swiper-button-prev:hover {
+    background-color: var(--text-color, #ffffff);
+    box-shadow: 0 0 25px var(--accent-color, #00FFC2);
+}
+
+.custom-swiper-button-next:hover::before,
+.custom-swiper-button-prev:hover::before {
+    /* Если иконки внутри ::before, то их цвет меняется через fill в SVG data-uri */
+    /* Вам нужно будет изменить fill='%23ffffff' на fill='%2300FFC2' в data-uri для hover состояния,
+       если вы хотите, чтобы иконки меняли цвет.
+       Либо использовать SVG как обычные img и менять им filter: invert() или другие свойства.
+       Пока оставляю как есть, так как это требует изменения data-uri или подхода.
+    */
+}
+
+/* Стили для пагинации */
+.swiper-pagination-bullet {
+    background-color: #555;
+    opacity: 0.8;
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--accent-color, #00FFC2);
+    opacity: 1;
+}
+
+/* Состояние отключенных стрелок */
+.custom-swiper-button-disabled { /* Используем ваш класс для disabled */
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .custom-swiper-button-prev {
+        left: 5px;
+    }
+    .custom-swiper-button-next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-swiper-button-next,
+    .custom-swiper-button-prev {
+        width: 36px;
+        height: 36px;
+    }
+    /* Убираем ::before фон, чтобы стрелки были меньше */
+    .custom-swiper-button-next::before,
+    .custom-swiper-button-prev::before {
+        width: 16px;
+        height: 16px;
+    }
+    .custom-swiper-button-prev {
+        left: 0px;
+    }
+    .custom-swiper-button-next {
+        right: 0px;
+    }
+    .additional-info-section__container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-swiper-button-next,
+    .custom-swiper-button-prev {
+        width: 30px;
+        height: 30px;
+    }
+    .custom-swiper-button-next::before,
+    .custom-swiper-button-prev::before {
+        width: 12px;
+        height: 12px;
+    }
+}

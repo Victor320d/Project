@@ -1,0 +1,27 @@
+/* Стили для секции PRODUCT CARDS */
+.product-cards-section {
+    background-color: #000000; /* Темный фон */
+    padding: 80px 0; /* Увеличиваем отступы */
+}
+
+.product-cards-section__container {
+    display: grid;
+    /* Уточняем grid-template-columns, чтобы обеспечить 3 колонки с адаптацией */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px; /* Увеличиваем отступ между карточками */
+    justify-content: center;
+}
+
+/* Адаптивность для PRODUCT CARDS SECTION */
+@media (max-width: 768px) {
+    .product-cards-section__container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-cards-section__container {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+    }
+}
